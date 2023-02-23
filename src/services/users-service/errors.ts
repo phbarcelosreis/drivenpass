@@ -10,3 +10,14 @@ export function existsEmailError(): ErrorsApplications {
   };
 
 }
+
+export function notFoundError(): ErrorsApplications {
+
+  return {
+
+    name: "UsersNotFound",
+    message: "This user is not found!"
+
+  };
+
+}

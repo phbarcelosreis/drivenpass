@@ -1,17 +1,28 @@
 import { Response, Request } from "express";
 import httpStatus from "http-status";
 import prisma from "../database/index.js";
-import { createUser } from "../services/users-service/index.js";
+import { checkSignIn, createUser } from "../services/users-service/index.js";
 
-async function userGet(req: Request, res: Response) {
+async function userPostSignIn(req: Request, res: Response) {
 
-    const users = await prisma.user.findMany();
+    const { email, password } = req.body;
 
-    res.send(users)
+    try {
+
+        const signIn = await checkSignIn({ email, password });
+
+        return res.status(httpStatus.OK).send(signIn)
+
+
+    } catch (error) {
+
+        return res.status(httpStatus.BAD_REQUEST).send(error);
+
+    }
 
 }
 
-async function userPost(req: Request, res: Response) {
+async function userPostSignUp(req: Request, res: Response) {
 
     const { email, password } = req.body;
 
@@ -38,7 +49,14 @@ async function userPost(req: Request, res: Response) {
 
 }
 
+export async function teste(req: Request, res: Response) {
+
+
+    return res.send(await prisma.session.findMany()) 
+
+}
+
 export {
-    userGet,
-    userPost
+    userPostSignIn,
+    userPostSignUp
 }
