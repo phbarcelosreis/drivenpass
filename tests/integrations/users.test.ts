@@ -1,7 +1,7 @@
 import httpStatus from "http-status";
 import supertest from "supertest";
-import app from "../src/app";
-import { cleanDb } from "./helpers";
+import app from "../../src/app";
+import { cleanDb } from "../helpers";
 import { faker } from "@faker-js/faker";
 
 const api = supertest(app)
