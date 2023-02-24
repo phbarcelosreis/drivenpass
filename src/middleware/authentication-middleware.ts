@@ -1,4 +1,4 @@
-import prisma from "../database/index";
+import {prisma} from "../database/index";
 import { unauthorizedError } from "../errors/unauthorized-error";
 import { NextFunction, Response, Request } from "express";
 import httpStatus from "http-status";
@@ -34,8 +34,6 @@ export async function checkToken(req: AuthenticatedRequest, res: Response, next:
         if (!session) return unauthorizedResponse(res);
 
         req.userId = userId;
-
-        console.log(req.userId)
 
         return next();
 

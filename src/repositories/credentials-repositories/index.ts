@@ -1,4 +1,4 @@
-import prisma from "../../database/index";
+import {prisma} from "../../database/index";
 
 export async function findCredentialByUserIdAndTitle(userId: number, title: string) {
 
@@ -46,33 +46,38 @@ export async function getAllCredentialsByUserId({ userId }) {
 
 }
 
-export async function getCredentialByCredentialId({ userId, credentialId }) {
+type teste = {
+    userId?: number,
+    credentialId: number
+}
 
-    const credentials = prisma.credential.findMany({
+export async function getCredentialByCredentialId({ userId, credentialId }: teste) {
+
+    const credentials = await prisma.credential.findMany({
         where: {
 
             id: credentialId,
-            userId: userId
+            userId:  userId
 
         }
 
     })
 
+    console.log(credentials)
+
     return credentials;
 
 }
 
-export async function deleteCredential({ credentialId }) {
+export async function deleteCredential({ credentialId }: teste) {
     
-    const deletedCredential = await prisma.credential.delete({
+    return prisma.credential.delete({
         where: {
 
-            id: credentialId
+            id:  credentialId
 
         },
     });
-
-    return deletedCredential;
 
 }
 

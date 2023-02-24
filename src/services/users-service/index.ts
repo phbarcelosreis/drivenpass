@@ -28,8 +28,6 @@ export async function createUser({ email, password }: UserCreateParams): Promise
 
     const hashedPassword = await bcrypt.hash(password, 12);
 
-    console.log(hashedPassword)
-
     return create({
         email,
         password: hashedPassword,

@@ -106,7 +106,18 @@ export async function returnCredential({ userId, credentialId }) {
 
 export async function credentialDelete({ userId, credentialId }) {
 
+    console.log(`retornando: ${credentialId}`)
+
+    if(!credentialId) {
+
+        notFoundCredential()
+
+    }
+
+
     const checkCredential = await getCredentialByCredentialId({ userId, credentialId })
+
+    console.log(checkCredential)
 
     if (checkCredential.length === 0) {
 
@@ -114,6 +125,6 @@ export async function credentialDelete({ userId, credentialId }) {
 
     }
 
-    await deleteCredential({ credentialId });
+    return deleteCredential({ credentialId });
 
 }

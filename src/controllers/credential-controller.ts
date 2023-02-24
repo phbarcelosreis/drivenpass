@@ -22,7 +22,7 @@ async function createCredential(req: AuthenticatedRequest, res: Response) {
 
         }
 
-        return res.status(httpStatus.UNAUTHORIZED).send(error);
+        return res.status(httpStatus.NOT_FOUND).send(error);
 
     }
 
@@ -71,6 +71,8 @@ async function deleteCredential (req: AuthenticatedRequest, res: Response) {
             return res.status(httpStatus.NOT_FOUND).send(error);
 
         }
+
+        console.log(error)
 
         return res.status(httpStatus.UNAUTHORIZED).send(error);
 

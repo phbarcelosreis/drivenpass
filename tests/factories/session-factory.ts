@@ -1,4 +1,4 @@
-import prisma from "../../src/database/index";
+import { prisma } from "../../src/database/index";
 import { createUser } from "../factories/users-factory";
 import { Session } from "@prisma/client";
 

@@ -1,6 +1,6 @@
 import dotenv from "dotenv"
 import { createUser } from "./factories/users-factory";
-import prisma from "../src/database";
+import { prisma } from "../src/database/index";
 import { User } from "@prisma/client";
 import * as jwt from "jsonwebtoken";
 import { createSession } from "./factories/session-factory";

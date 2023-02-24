@@ -1,6 +1,5 @@
 import { Response, Request } from "express";
 import httpStatus from "http-status";
-import prisma from "../database/index";
 import { checkSignIn, createUser } from "../services/users-service/index";
 
 async function userPostSignIn(req: Request, res: Response) {
@@ -11,16 +10,10 @@ async function userPostSignIn(req: Request, res: Response) {
 
         const signIn = await checkSignIn({ email, password });
 
-        return res.status(httpStatus.CREATED).send(signIn)
+        return res.status(httpStatus.OK).send(signIn)
 
 
     } catch (error) {
-
-        if(error.name === "") {
-
-            return res.status(httpStatus.UNAUTHORIZED).send(error);
-
-        }
 
         return res.status(httpStatus.BAD_REQUEST).send(error);
 
