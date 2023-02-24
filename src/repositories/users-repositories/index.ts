@@ -1,5 +1,5 @@
 import { Prisma } from "@prisma/client";
-import prisma from "../../database/index.js";
+import prisma from "../../database/index";
 
 async function create(data: Prisma.UserUncheckedCreateInput) {
 

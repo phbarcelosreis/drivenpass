@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { teste, userPostSignIn, userPostSignUp } from "../controllers/user-controller.js";
+import { teste, userPostSignIn, userPostSignUp } from "../controllers/user-controller";
 
 const userRouter = Router();
 
@@ -8,4 +8,4 @@ userRouter
     .post("/sign-up", userPostSignUp)
     .get("/teste", teste)
 
-export { userRouter };
+export default userRouter;

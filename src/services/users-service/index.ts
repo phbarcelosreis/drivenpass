@@ -1,10 +1,10 @@
 import { User } from "@prisma/client";
 import bcrypt from "bcrypt"
-import { create, findByEmail } from "../../repositories/users-repositories/index.js";
-import { userSchema } from "../../schemas/users.schema.js";
-import { existsEmailError, notFoundError } from "./errors.js";
+import { create, findByEmail } from "../../repositories/users-repositories/index";
+import { userSchema } from "../../schemas/users.schema";
+import { existsEmailError, notFoundError } from "./errors";
 import jwt from "jsonwebtoken"
-import { createValidSession } from "../../repositories/user-session-repositories/index.js";
+import { createValidSession } from "../../repositories/user-session-repositories/index";
 
 export type UserCreateParams = Pick<User, "email" | "password">;
 
