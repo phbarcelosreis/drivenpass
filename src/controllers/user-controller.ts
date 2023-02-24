@@ -11,7 +11,7 @@ async function userPostSignIn(req: Request, res: Response) {
 
         const signIn = await checkSignIn({ email, password });
 
-        return res.status(httpStatus.OK).send(signIn)
+        return res.status(httpStatus.CREATED).send(signIn)
 
 
     } catch (error) {

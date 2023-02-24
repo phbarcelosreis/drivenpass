@@ -1,4 +1,3 @@
-import { number } from "joi";
 import prisma from "../../database/index";
 
 export async function findCredentialByUserIdAndTitle(userId: number, title: string) {
