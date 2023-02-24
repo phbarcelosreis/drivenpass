@@ -19,7 +19,7 @@ async function userPostSignIn(req: Request, res: Response) {
         if(error.name === "") {
 
             return res.status(httpStatus.UNAUTHORIZED).send(error);
-            
+
         }
 
         return res.status(httpStatus.BAD_REQUEST).send(error);
@@ -52,13 +52,6 @@ async function userPostSignUp(req: Request, res: Response) {
         return res.status(httpStatus.BAD_REQUEST).send(error);
 
     }
-
-}
-
-export async function teste(req: Request, res: Response) {
-
-
-    return res.send(await prisma.session.findMany()) 
 
 }
 
